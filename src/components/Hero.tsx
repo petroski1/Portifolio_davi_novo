@@ -59,7 +59,7 @@ export function Hero() {
       </div>
 
       <div className="flex min-w-0 flex-[1_1_420px] justify-center">
-        <div className="relative w-full max-w-[480px] pb-10">
+        <div className="relative w-full max-w-[480px] pb-[150px] sm:pb-24">
           <div className="flex aspect-square w-full max-w-[420px] flex-col items-center justify-center gap-3 overflow-hidden rounded-full border-2 border-[#5B3FD0] bg-[#24185A] text-destaque-suave">
             {foto ? (
               <img
