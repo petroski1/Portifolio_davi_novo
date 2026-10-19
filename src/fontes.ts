@@ -1,0 +1,10 @@
+// Fontes servidas pelo próprio site (sem depender do Google Fonts), só latin.
+import '@fontsource/sora/latin-400.css'
+import '@fontsource/sora/latin-600.css'
+import '@fontsource/sora/latin-700.css'
+import '@fontsource/sora/latin-800.css'
+import '@fontsource/dm-sans/latin-400.css'
+import '@fontsource/dm-sans/latin-500.css'
+import '@fontsource/dm-sans/latin-700.css'
+import '@fontsource/jetbrains-mono/latin-400.css'
+import '@fontsource/jetbrains-mono/latin-500.css'
