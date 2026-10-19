@@ -7,6 +7,7 @@ import sharp from 'sharp'
 import { mkdir } from 'node:fs/promises'
 
 const projetos = [
+  ['clinica-valeria-lopes', 'https://valerialopes.vercel.app/'],
   // oralcad-connect fica de fora: a página inicial é uma tela de login.
   ['davi-lab', 'https://davi-lab.vercel.app/'],
   ['fincontrol-pro', 'https://jest-pessoal.netlify.app/'],

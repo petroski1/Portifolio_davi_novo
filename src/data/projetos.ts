@@ -24,7 +24,8 @@ export const projetos: Projeto[] = [
     descricao:
       'Site da biomédica Valéria Lopes com tratamentos por categoria, galeria de antes e depois e agendamento enviado direto pelo WhatsApp.',
     tags: ['Landing page', 'Agendamento', 'Vercel'],
-    url: '#', // TODO: URL pública de produção a confirmar
+    url: 'https://valerialopes.vercel.app/',
+    imagem: '/projetos/clinica-valeria-lopes.webp',
     ilustracao: 'clinica',
     fundo: '#2B1A22',
     corNumero: '#F5D0DC',
