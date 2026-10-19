@@ -36,7 +36,8 @@ export const projetos: Projeto[] = [
       'Sistema financeiro para laboratório de prótese dentária: trabalhos, valores, pagamentos e pendências, com painéis diferentes para equipe e clientes.',
     tags: ['Sistema web', 'Login', 'Dashboard'],
     url: 'https://oralcad-connect.lovable.app',
-    ilustracao: 'oralcad', // a página inicial é a tela de login
+    imagem: '/projetos/oralcad-connect.webp', // print da tela de login (é a página inicial)
+    ilustracao: 'oralcad',
     fundo: '#0F1D36',
     corNumero: '#BFDBFE',
   },

@@ -8,7 +8,8 @@ import { mkdir } from 'node:fs/promises'
 
 const projetos = [
   ['clinica-valeria-lopes', 'https://valerialopes.vercel.app/'],
-  // oralcad-connect fica de fora: a página inicial é uma tela de login.
+  // A página inicial é a tela de login: o recorte dá zoom no logo e no formulário.
+  ['oralcad-connect', 'https://oralcad-connect.lovable.app', { x: 320, y: 90, width: 640, height: 400 }],
   ['davi-lab', 'https://davi-lab.vercel.app/'],
   ['fincontrol-pro', 'https://jest-pessoal.netlify.app/'],
   ['loja-militar', 'https://trabalho-cliente-54.vercel.app/'],
@@ -21,13 +22,16 @@ const browser = await chromium.launch(
   process.env.CHROMIUM_PATH ? { executablePath: process.env.CHROMIUM_PATH } : {},
 )
 const page = await browser.newPage({ viewport: { width: 1280, height: 800 } })
+// Com recorte, a captura é feita em 2x para o resultado continuar com 1280px de largura.
+const zoom = await browser.newPage({ viewport: { width: 1280, height: 800 }, deviceScaleFactor: 2 })
 
-for (const [slug, url] of projetos) {
+for (const [slug, url, recorte] of projetos) {
   if (filtro && filtro !== slug) continue
-  await page.goto(url, { waitUntil: 'networkidle', timeout: 60000 }).catch(() => {})
-  await page.waitForTimeout(2500)
-  console.log(`${slug}: ${page.url()} — "${await page.title()}"`)
-  const png = await page.screenshot()
+  const aba = recorte ? zoom : page
+  await aba.goto(url, { waitUntil: 'networkidle', timeout: 60000 }).catch(() => {})
+  await aba.waitForTimeout(2500)
+  console.log(`${slug}: ${aba.url()} — "${await aba.title()}"`)
+  const png = await aba.screenshot(recorte ? { clip: recorte } : {})
   await sharp(png).webp({ quality: 82 }).toFile(`public/projetos/${slug}.webp`)
   await sharp(png).resize(640).webp({ quality: 78 }).toFile(`public/projetos/${slug}-640.webp`)
 }
